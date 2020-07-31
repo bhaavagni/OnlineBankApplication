@@ -1,0 +1,82 @@
+Last login: Fri Jul 31 12:48:08 on ttys000
+bhaavagni@Bhaavagnis-MacBook-Pro ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 144
+Server version: 8.0.20 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use bankdemo;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_bankdemo |
++--------------------+
+| customer           |
+| login              |
+| transaction        |
++--------------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from login;
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | admin    |
++----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from customer;
++----------+------------+----------+---------+------+------------+-----------+--------+----------+
+| custname | acc_number | acc_type | balance | age  | address    | phone     | gender | email    |
++----------+------------+----------+---------+------+------------+-----------+--------+----------+
+| Sai      |        101 | Savings  |   36350 |   56 | KP         |   9267282 | Female | s@cd.c   |
+| Tara     |        102 | Savings  |   25600 |   23 | Mumbai     | 971928291 | Female | t@s.c    |
+| Sarath   |        103 | Savings  |   51100 |   25 | Delhi      | 762827282 | Male   | s@s.c    |
+| Jhon     |        104 | Current  |   10100 |   56 | Maharastra | 928282082 | Male   | sar@sj   |
+| Vinodh   |        105 | Savings  |   16400 |   33 | Chennai    |  98292982 | Male   | vio@c.cm |
+| Elle     |        106 | Savings  |   10550 |   20 | LA         | 817827279 | Female | Ell@c    |
+| alaih    |        107 | Current  |   10000 |   22 | LA         |   1872872 | Male   | a@n.in   |
+| sri      |        108 | Savings  |   25000 |   34 | Pune       |  98223739 | Female | s@c.c    |
+| maya     |        109 | Savings  |   68000 |   44 | delhi      |   1362527 | Female | m@d.in   |
+| nishith  |        110 | Savings  |   50000 |   26 | hyderabad  |   1902911 | Male   | n@s.si   |
+| sai      |        111 | Savings  |   20100 |   43 | Pune       |    234424 | Male   | s@i.c    |
+| sush     |        112 | Savings  |   46000 |   56 | delhi      |   2878738 | Female | S@b.n    |
++----------+------------+----------+---------+------+------------+-----------+--------+----------+
+12 rows in set (0.01 sec)
+
+mysql> select * from transaction;
++-----------+---------+-------+---------+
+| fromaccno | toaccno | funds | balance |
++-----------+---------+-------+---------+
+|       101 |     104 |   600 |   35400 |
+|       103 |     105 |  8000 |   50000 |
+|       101 |     106 |   400 |   35000 |
+|       101 |     106 |   100 |   34900 |
+|       101 |     102 |   100 |   34800 |
+|       101 |     106 |    50 |   34750 |
+|       101 |     103 |   100 |   34650 |
+|       101 |     105 |  1000 |   33650 |
+|       101 |     103 |  1000 |   32650 |
+|       105 |     102 |   500 |   17800 |
+|       105 |     101 |  1000 |   16800 |
+|       105 |     101 |   200 |   16600 |
+|       105 |     101 |   200 |   16400 |
+|       101 |     111 |   200 |   33850 |
+|       111 |     101 |  1000 |   22600 |
+|       111 |     101 |  1500 |   21100 |
+|       111 |     112 |  1000 |   20100 |
++-----------+---------+-------+---------+
+17 rows in set (0.00 sec)
+
+mysql> 
